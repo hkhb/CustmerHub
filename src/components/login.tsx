@@ -2,16 +2,16 @@ import { useState } from 'react'
 import './login.css'
 
 interface loginProps{
-  sucsess: () => void;
+  login: () => void;
 }
 
-function Login({sucsess}:loginProps) {
+function Login({login}:loginProps) {
   const user:string = "admin"
   const password:string = "password"
 
   const onLogin = () => {
     if(user === formUser && password === formPassword){
-      sucsess();
+      login();
     }else {
       alert("ユーザー名またはパスワードが間違っています");
     }

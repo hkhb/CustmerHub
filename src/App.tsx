@@ -1,22 +1,28 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './components/login'
+import Main from './components/main'
 
 function App() {
 
-  const [isLogin, setisLogin] = useState<boolean>(true);
-  const change = () => {
-    setisLogin(false);
+  const [isLogin, setisLogin] = useState<boolean>(false);
+  const login = () => {
+    setisLogin(true);
+  }
+  const logout = () => {
+    setisLogin(false)
   }
 
   return (
     <>
       {isLogin? 
-      <Login
-        sucsess={change}
+      <Main
+        logout={logout}
       />
       :
-      <p>ooo</p>
+      <Login
+        login={login}
+      />
     }
     </>
   )
