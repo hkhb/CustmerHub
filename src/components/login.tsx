@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TextField, Button, Box, Typography } from '@mui/material';
 import './login.css'
 
 interface loginProps{
@@ -21,27 +22,45 @@ function Login({login}:loginProps) {
   const [formPassword, setformPassword] = useState<string>("");
 
   return (
-    <div>
-      <div className='Login-area'>
-        <h3>ユーザー名</h3>
-        <input
-          type="text"
-          className='login-form, form'
-          value={formUser}
-          onChange={(e) => setformUser(e.target.value)}
-        />
-      </div>
-      <div className='password-area'>
-        <h3>パスワード</h3>
-        <input
-          type="text"
-          className='password-form, form'
-          value={formPassword}
-          onChange={(e) => setformPassword(e.target.value)}
-        />
-      </div>
-      <button onClick={onLogin}>ログイン</button>
-    </div>
+    
+    <Box
+      component="form"
+      onSubmit={onLogin}
+      sx={{
+        maxWidth: 400,
+        margin: 'auto',
+        padding: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        backgroundColor: '#fff',
+        borderRadius: 2,
+        boxShadow: 3,
+        mt: 8,
+      }}
+    >
+      <Typography variant="h5" textAlign="center" color="black">
+        ログイン
+      </Typography>
+      <TextField
+        label="ユーザー名"
+        variant="outlined"
+        fullWidth
+        value={formUser}
+        onChange={(e) => setformUser(e.target.value)}
+      />
+      <TextField
+        label="パスワード"
+        type="password"
+        variant="outlined"
+        fullWidth
+        value={formPassword}
+        onChange={(e) => setformPassword(e.target.value)}
+      />
+      <Button type="submit" variant="contained" color="primary">
+        ログイン
+      </Button>
+    </Box>
   )
 }
 
