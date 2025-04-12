@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import List  from './list.tsx'
 import Header from './header.tsx';
 import './main.css'
@@ -34,7 +33,7 @@ function Main({logout}:logoutProps) {
       <Header
         logout={logout}
       />
-      <div>
+      <div className='main'>
         {demodatas.map((data)=> (
             <List
               key={data.id}
