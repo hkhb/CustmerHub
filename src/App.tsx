@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className='page'>
       {isLogin? 
       <Main
         logout={logout}
@@ -24,7 +24,7 @@ function App() {
         login={login}
       />
     }
-    </>
+    </div>
   )
 }
 
