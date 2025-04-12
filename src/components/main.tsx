@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import List  from './list.tsx'
+import Header from './header.tsx';
 import './main.css'
 
 export interface DemoData {
@@ -28,25 +29,18 @@ interface logoutProps{
 
 function Main({logout}:logoutProps) {
 
-  const onLogout = () => {
-    const confirm = window.confirm("ログアウトしますか？");
-    confirm? logout() : ""
-    
-  }
-
   return (
     <div>
-      <header>
-        <p>顧客一覧</p>
-        <button onClick={onLogout}></button>
-      </header>
+      <Header
+        logout={logout}
+      />
       <div>
-      {demodatas.map((data)=> (
-          <List
-            key={data.id}
-            {...data}
-          /> 
-        ))}
+        {demodatas.map((data)=> (
+            <List
+              key={data.id}
+              {...data}
+            /> 
+          ))}
       </div>
     </div>
   )
