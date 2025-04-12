@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+#page {
+  background-color: #ffffff;
+}
 
 .logo {
   height: 6em;
