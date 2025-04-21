@@ -3,7 +3,6 @@ import "./list.css"
 import { Paper, Box, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import { DemoData } from './main.tsx'
-import { Light } from '@mui/icons-material';
   
   const List : React.FC< DemoData > = ({name, mail, createdAt, updatedAt}) => {
     const displayDate = format(updatedAt ? updatedAt : createdAt, 'yyyy-MM-dd HH:mm');
@@ -16,18 +15,19 @@ import { Light } from '@mui/icons-material';
         borderRadius: 2,
         marginBottom: 2,
         backgroundColor: '#fff',
+        width: "calc(33.333% - 20px)"
       }}
-    >
-      <Box className="customer-name-field" sx={{ marginBottom: 1 }}>
-        <Typography variant="h5" color="text.primary" fontWeight="bold">
-          {name}
+      >
+        <Box className="customer-name-field" sx={{ marginBottom: 1 }}>
+          <Typography variant="h5" color="text.primary" fontWeight="bold">
+            {name}
+          </Typography>
+        </Box>
+        <Typography color="text.secondary">{mail}</Typography>
+        <Typography variant="body2" sx={{ marginTop: 1, color: 'gray', textAlign: "light" }}>
+          最終更新{displayDate}
         </Typography>
-      </Box>
-      <Typography color="text.secondary">{mail}</Typography>
-      <Typography variant="body2" sx={{ marginTop: 1, color: 'gray', textAlign: "light" }}>
-        最終更新{displayDate}
-      </Typography>
-    </Paper>
+      </Paper>
     )
 }
 export default List;

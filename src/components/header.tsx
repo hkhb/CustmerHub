@@ -2,7 +2,6 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Tooltip } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./header.css"
-import { yellow } from '@mui/material/colors';
 
   interface header {
     logout: () => void;
@@ -23,7 +22,7 @@ import { yellow } from '@mui/material/colors';
       elevation={2}
       sx={{
         position: "fixed",
-        width: '100vw',      // 横幅MAX
+        width: '100vw',
         left: 0,
         right: 0,
         top: 0,

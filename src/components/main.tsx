@@ -1,6 +1,7 @@
-import List  from './list.tsx'
-import Header from './header.tsx';
-import './main.css'
+import List  from './list'
+import Header from './header';
+import Grid from '@mui/material/Grid';
+import './main'
 
 export interface DemoData {
   id: number;
@@ -33,14 +34,13 @@ function Main({logout}:logoutProps) {
       <Header
         logout={logout}
       />
-      <div className='main'>
-        {demodatas.map((data)=> (
-            <List
-              key={data.id}
-              {...data}
-            /> 
-          ))}
-      </div>
+      <Grid container spacing={2}>
+        {demodatas.map((item) => (
+          <Grid item xs={12} sm={6} md={4} key={item.id}>
+            <List {...item} />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   )
 }
